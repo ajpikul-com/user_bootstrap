@@ -13,3 +13,4 @@
 *.hex
 *.out
 *.sw*
+node_modules/
