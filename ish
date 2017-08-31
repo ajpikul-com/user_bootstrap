@@ -1,0 +1,15 @@
+#!/bin/bash
+####################### ISH #####################
+#
+#	Is removes public key checking from SSH so we can use SSH  insecurely. - AJ 6/26/16
+#
+#
+#
+
+echo "You can safely ignore the known_hosts warning"
+command="ssh -o StrictHostkeyChecking=no -o UserKnownHostsFile=/dev/null"
+for var in "$@"
+do
+	command="$command $var"
+done
+eval $command
