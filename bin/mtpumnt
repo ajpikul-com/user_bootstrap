@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "unmounting"
+if mount | grep motorola -q; then
+	if umount /media/motorola; then
+		exit 0;
+	else
+		echo "something went wrong unmounting" 
+	fi
+fi

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+if [ ! $(which aft-mtp-mount &> /dev/null) ]; then
+	mkdir -p /media/motorola
+	if mount | grep motorola -q; then
+		echo "could not mount device since /media/motorola is already in device"	
+	else
+		echo "mounting"
+		echo "$(/usr/src/android-file-transfer-linux/build/fuse/aft-mtp-mount /media/motorola)"
+	fi
+fi
