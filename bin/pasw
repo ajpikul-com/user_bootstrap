@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ $1 = "pci" ] || [ $1 = "Headset" ]; then
+
+	## this is for watching sinks
+	newSink=$(pactl list sinks short | grep $1 | awk '{ print $1}')
+
+	pactl list sink-inputs short | awk '{ print $1}' | while read line; do
+		echo $line to $newSink
+		pactl move-sink-input $line $newSink
+	done
+
+elif [ $1 = "toggle" ]; then
+
+	#toggle mute
+	pactl list sinks short | awk '{ print $1}' | while read line; do
+		pactl set-sink-mute $line toggle
+	done
+elif [ $1 = "up" ]; then
+
+	pactl list sinks short | awk '{ print $1}' | while read line; do
+		sh -c "pactl set-sink-mute $line false ; pactl set-sink-volume $line +5%"
+	done
+
+elif [ $1 = "down" ]; then
+
+	pactl list sinks short | awk '{ print $1}' | while read line; do
+		sh -c "pactl set-sink-mute $line false ; pactl set-sink-volume $line -5%"
+	done
+
+else
+
+	echo 'Commands: "pci", "Headset", "toggle", "up", "down"'
+	notify-send 'Commands: "pci", "Headset", "toggle", "up", "down"'	-t 100
+	exit 1
+
+fi
+
+
