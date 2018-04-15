@@ -8,6 +8,7 @@ if [ $1 = "pci" ] || [ $1 = "Headset" ]; then
 	pactl list sink-inputs short | awk '{ print $1}' | while read line; do
 		echo $line to $newSink
 		pactl move-sink-input $line $newSink
+		pactl set-default-sink $newSink
 	done
 
 elif [ $1 = "toggle" ]; then
