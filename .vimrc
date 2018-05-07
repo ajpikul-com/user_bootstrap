@@ -1,6 +1,13 @@
 " this will break if you haven't installed pathogen
 silent! call pathogen#infect()
 
+if exists("*pathogen#infect")
+	" requires snipmate- assume its installed if pathogen is installed
+	au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
+	let patho = ""
+else
+	let patho = "No\ Pathogen\ \ "
+endif
 
 set nocompatible
 syntax on
@@ -28,6 +35,7 @@ set statusline+=%f\                          " filename
 set statusline+=%h%m%r%w                     " status flags
 set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
 set statusline+=%=                           " right align remainder
+set statusline+=%{patho}
 set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
@@ -50,12 +58,6 @@ let xml_syntax_folding=1      " XML
 " for autoread, which sucks entirely
 au FocusGained,BufEnter,InsertEnter * :silent! !
 
-if exists("*pathogen#infect")
-	" requires snipmate- assume its installed if pathogen is installed
-	au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
-else    
-	:silent !echo No pathogen installed! Check it out on github
-endif
 " for snipmate
 
 
