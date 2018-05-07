@@ -1,5 +1,6 @@
 " this will break if you haven't installed pathogen
-execute pathogen#infect()
+silent! call pathogen#infect()
+
 
 set nocompatible
 syntax on
@@ -13,14 +14,11 @@ set softtabstop=0 noexpandtab
 set number
 set cursorline
 set wildmenu
-set foldmethod=syntax
-set foldcolumn=8
 set switchbuf=usetab,newtab
 
 " this is supposed to make folding chillout
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
-
 set omnifunc=syntaxcomplete?Complete
 
 set laststatus=2
@@ -34,4 +32,31 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
-colorscheme peachpuff
+set foldmethod=syntax
+set foldcolumn=8
+set foldlevelstart=2
+
+" Don't actually know if this is necessary but..
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+
+" for autoread, which sucks entirely
+au FocusGained,BufEnter,InsertEnter * :silent! !
+
+if exists("*pathogen#infect")
+	" requires snipmate- assume its installed if pathogen is installed
+	au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
+else    
+	:silent !echo No pathogen installed! Check it out on github
+endif
+" for snipmate
+
+
+source ~/.vimrc_prologue

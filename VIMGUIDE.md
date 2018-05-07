@@ -92,3 +92,4 @@ My plugins:
 **vim-surround**: adds shortcuts for editing surroundings.. cs"' changes " to ', or cs"<q>, or cst!. ds" deletes surroundings. there's more if you check it out.  
 **vim-fugative**: feature-rich git thinger, if we need it, we'll look it up
 **vim-sneak**: like `f` and `F`, but takes two characters on s and S
+**vim-snipmate**: lots of snippets you gotta checkout, use SnipMateOpenSnippetFiles to see a list of snip files loaded, ~/.vim/snippets contains .snippets files you make

@@ -1,3 +1,4 @@
+# source this from .bashrc
 
 # Put your fun stuff here.
 alias ls='ls --color=auto'
@@ -8,4 +9,6 @@ alias l.='ls -d .* --color=auto'
 
 alias termbin='nc termbin.com 9999'
 
-cat .user_messages 2> /dev/null
+cat ~/.user_messages 2> /dev/null
+
+tree -L 2 -I Downloads
