@@ -1,12 +1,17 @@
-" this will break if you haven't installed pathogen
+
 silent! call pathogen#infect()
+" All pathogen does is 
+" A) Get loaded (if installed in ~/.vim/pathogen and linked in ~/.vim/autload
+" B) load everything in ~/.vim/bundle
+" Honestly it just makes organizing ~/.vim nicer because it searches for *.vim
+" files
 
 if exists("*pathogen#infect")
 	" requires snipmate- assume its installed if pathogen is installed
 	au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
 	let patho = ""
 else
-	let patho = "No\ Pathogen\ \ "
+	let patho = "No\ Pathogen-\ See\ .vimrc\ \ "
 endif
 
 set nocompatible
