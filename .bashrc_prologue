@@ -9,6 +9,80 @@ alias l.='ls -d .* --color=auto'
 
 alias termbin='nc termbin.com 9999'
 
+# use this to create a todo list for yourself
 cat ~/.user_messages 2> /dev/null
 
+# use this to see your first directories (like a desktop)
 tree -L 2 -I Downloads
+
+bold=$(tput bold)
+normal=$(tput sgr0)
+echo ${bold}File:${normal}
+# this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
+ls -a1 ~ | diff .directory_last -
+echo -e "`ls -a1 ~`" > .directory_last
+
+echo
+
+# the GIT TRACKER! it wont run more than every 4 hours or if you mess with .gitdirectories (since it stores the time it last run as a line)
+# it needs to work with modules better
+# tracking multiple branches
+# letting you know if there are new branches in remote
+
+echo ${bold}Git:${normal}
+if [ -e ~/.gitdirectories ]; then
+	LAST_DATE="`tail -1 ~/.gitdirectories | head -1`"
+	THIS_DATE="`date +%s`"
+	RUNIT=false
+	case ${LAST_DATE} in
+    ''|*[!0-9]*) 
+			RUNIT=true
+			;;
+    *) 
+			if [ ${LAST_DATE} -lt $(( ${THIS_DATE} - $(( 60 * 60 * 4 )) )) ]; then
+				RUNIT=TRUE
+				sed -i '$ d' ~/.gitdirectories
+			fi
+			;;
+	esac
+	if [ ${RUNIT} = "true" ]; then
+		while read pathname; do
+			case ${pathname} in
+				''|*[!0-9]*) 
+					echo ${bold} ${pathname} ${normal}
+					echo "${bold}Fetch:${normal}"
+					git -C "${pathname}" fetch --all
+					echo "${bold}Status:${normal}"
+					git -C "${pathname}" status -s
+					echo "${bold}Log:${normal}"
+					git -C "${pathname}" --no-pager log HEAD..@{upstream} --oneline
+					;;
+				*) 
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					echo "HEY, YOU HAVE TIMESTAMP IN THE MIDDLE OF YOUR FILE"
+					;;
+			esac
+		done < ~/.gitdirectories
+		echo "${THIS_DATE}" >> ~/.gitdirectories
+	else
+		echo "not ready to fetch"
+	fi
+else
+	echo "Look at .bashrc_prologue!"
+	echo "Comment these lines in .bashrc_prologue if you don't want the git feature."
+	echo "Set git config --global credential.helper store"
+	echo "Set git config --global credential.helper \'cache --timeout 7200\'"
+	echo "Timeout doesn't work that well for me"
+	echo "And create a .gitdirectories file (I used find . -name .git)"
+fi
