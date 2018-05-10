@@ -28,6 +28,8 @@ echo
 # it needs to work with modules better
 # tracking multiple branches
 # letting you know if there are new branches in remote
+# maybe lets us know the most contributed to branches
+# we need an update checker that works with non-git stuff
 
 echo ${bold}Git:${normal}
 if [ -e ~/.gitdirectories ]; then

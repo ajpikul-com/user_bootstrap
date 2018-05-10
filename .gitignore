@@ -14,3 +14,4 @@
 *.out
 *.sw*
 node_modules/*
+gerbers.zip
