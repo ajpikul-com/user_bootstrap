@@ -9,20 +9,9 @@ alias l.='ls -d .* --color=auto'
 
 alias termbin='nc termbin.com 9999'
 
-# use this to create a todo list for yourself
-cat ~/.user_messages 2> /dev/null
-
-# use this to see your first directories (like a desktop)
-tree -L 2 -I Downloads
-
 bold=$(tput bold)
 normal=$(tput sgr0)
-echo ${bold}File:${normal}
-# this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
-ls -a1 ~ | diff .directory_last -
-echo -e "`ls -a1 ~`" > .directory_last
 
-echo
 
 # the GIT TRACKER! it wont run more than every 4 hours or if you mess with .gitdirectories (since it stores the time it last run as a line)
 # it needs to work with modules better
@@ -30,6 +19,8 @@ echo
 # letting you know if there are new branches in remote
 # maybe lets us know the most contributed to branches
 # we need an update checker that works with non-git stuff
+# hide stuff not relevant
+# need to check directories to see if there is stuff i'm not tracking
 
 echo ${bold}Git:${normal}
 if [ -e ~/.gitdirectories ]; then
@@ -79,6 +70,7 @@ if [ -e ~/.gitdirectories ]; then
 		echo "${THIS_DATE}" >> ~/.gitdirectories
 	else
 		echo "not ready to fetch"
+		# should still status here
 	fi
 else
 	echo "Look at .bashrc_prologue!"
@@ -88,3 +80,24 @@ else
 	echo "Timeout doesn't work that well for me"
 	echo "And create a .gitdirectories file (I used find . -name .git)"
 fi
+
+echo
+echo
+
+
+
+echo ${bold}File:${normal}
+# this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
+ls -a1 ~ | diff .directory_last -
+echo -e "`ls -a1 ~`" > .directory_last
+
+echo
+echo ${bold}Todo:${normal}
+# this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
+# use this to create a todo list for yourself
+cat ~/.user_messages 2> /dev/null
+
+echo ${bold}Tree:${normal}
+# use this to see your first directories (like a desktop)
+tree -L 2 -I Downloads
+
