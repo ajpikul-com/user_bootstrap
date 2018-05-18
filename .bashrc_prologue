@@ -83,6 +83,7 @@ else
 		echo "Timeout doesn't work that well for me"
 		echo "And create a .gitdirectories file (I used find . -name .git)"
 		echo "Or... set GIT_PROLOGUE=\"no\" in .bashrc"
+	fi
 fi
 
 echo
