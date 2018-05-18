@@ -73,12 +73,16 @@ if [ -e ~/.gitdirectories ]; then
 		# should still status here
 	fi
 else
-	echo "Look at .bashrc_prologue!"
-	echo "Comment these lines in .bashrc_prologue if you don't want the git feature."
-	echo "Set git config --global credential.helper store"
-	echo "Set git config --global credential.helper \'cache --timeout 7200\'"
-	echo "Timeout doesn't work that well for me"
-	echo "And create a .gitdirectories file (I used find . -name .git)"
+	if [ GIT_PROLOGUE = "no" ]; then
+		echo "Git Prologue set to \"no\""
+	else
+		echo "Look at .bashrc_prologue!"
+		echo "Comment these lines in .bashrc_prologue if you don't want the git feature."
+		echo "Set git config --global credential.helper store"
+		echo "Set git config --global credential.helper \'cache --timeout 7200\'"
+		echo "Timeout doesn't work that well for me"
+		echo "And create a .gitdirectories file (I used find . -name .git)"
+		echo "Or... set GIT_PROLOGUE=\"no\" in .bashrc"
 fi
 
 echo
