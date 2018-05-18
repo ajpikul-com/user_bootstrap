@@ -73,7 +73,7 @@ if [ -e ~/.gitdirectories ]; then
 		# should still status here
 	fi
 else
-	if [ GIT_PROLOGUE = "no" ]; then
+	if [ "$GIT_PROLOGUE" = "no" ]; then
 		echo "Git Prologue set to \"no\""
 	else
 		echo "Look at .bashrc_prologue!"
