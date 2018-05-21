@@ -12,17 +12,18 @@ alias termbin='nc termbin.com 9999'
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-
 if [ -e ~/.updatescript ]; then
 	source ~/.updatescript
 	LAST_UPDATE="$(stat ~/.updatescript -c %X)"
 	THIS_UPDATE="$(date +%s)"
-	echo $LAST_UPDATE
-	echo $THIS_UPDATE
 	if [ ${LAST_UPDATE} -lt $(( ${THIS_UPDATE} - $(( 60 * 60 * 24 )) )) ]; then
 		update_me
 		touch ~/.updatescript
+	else
+		check_update
 	fi
+else
+	echo "You have no .updatescript"
 fi
 
 # the GIT TRACKER! it wont run more than every 4 hours or if you mess with .gitdirectories (since it stores the time it last run as a line)
@@ -109,8 +110,6 @@ fi
 echo
 echo
 
-
-
 echo ${bold}Todo:${normal}
 # this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
 # use this to create a todo list for yourself
@@ -128,3 +127,23 @@ echo -e "`ls -a1 ~`" > .directory_last
 echo
 
 tmux ls 2> /dev/null
+
+echo
+
+if [ -e ~/.serverscript ]; then
+	source ~/.serverscript
+	LAST_UPDATE="$(stat ~/.serverscript -c %X)"
+	THIS_UPDATE="$(date +%s)"
+	if [ ${LAST_UPDATE} -lt $(( ${THIS_UPDATE} - $(( 60 * 60 * 12 )) )) ]; then
+		connect_list
+		touch ~/.serverscript
+	else
+		check_connect
+	fi
+else
+	echo "You have no .serverscript"
+fi
+
+echo
+
+echo "Check your logs for... I don't know. Figure it out. Then automate it here"
