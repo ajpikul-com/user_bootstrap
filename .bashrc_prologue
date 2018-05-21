@@ -8,10 +8,14 @@ alias lla='ls -la --color=auto'
 alias l.='ls -d .* --color=auto'
 
 alias termbin='nc termbin.com 9999'
+if [ ! -e .Xauthority ]; then
+	exit
+fi
 
 bold=$(tput bold)
 normal=$(tput sgr0)
 
+echo ${bold}Update Script:${normal}
 if [ -e ~/.updatescript ]; then
 	source ~/.updatescript
 	LAST_UPDATE="$(stat ~/.updatescript -c %X)"
@@ -25,6 +29,8 @@ if [ -e ~/.updatescript ]; then
 else
 	echo "You have no .updatescript"
 fi
+
+echo
 
 # the GIT TRACKER! it wont run more than every 4 hours or if you mess with .gitdirectories (since it stores the time it last run as a line)
 # need to check directories to see if there is stuff i'm not tracking
@@ -108,16 +114,26 @@ else
 fi
 
 echo
-echo
 
 echo ${bold}Todo:${normal}
 # this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
 # use this to create a todo list for yourself
 cat ~/.user_messages 2> /dev/null
+echo 
+
+#column  <( tree -L 2 -I Downloads ) <( \
+if [ -e $HOME/my_projects/ledge/basic_commands ]; then
+	echo ${bold}Finance:${normal}
+	$HOME/my_projects/ledge/basic_commands
+fi #\
+#	) 
+echo 
 
 echo ${bold}Tree:${normal}
-# use this to see your first directories (like a desktop)
-tree -L 2 -I Downloads
+tree -L 2 -I Downloads --noreport
+
+echo
+
 
 echo ${bold}File:${normal}
 # this will track changes to your home directory, pesky programs creating messy hidden files. Die in a fire!
@@ -126,10 +142,11 @@ echo -e "`ls -a1 ~`" > .directory_last
 
 echo
 
+echo ${bold}Tmux:${normal}
 tmux ls 2> /dev/null
 
 echo
-
+echo ${bold}ServerCheck:${normal}
 if [ -e ~/.serverscript ]; then
 	source ~/.serverscript
 	LAST_UPDATE="$(stat ~/.serverscript -c %X)"
@@ -144,6 +161,11 @@ else
 	echo "You have no .serverscript"
 fi
 
-echo
+if [ -e ~/my_projects/analytics_api/HelloAnalytics.py ]; then
+	echo
+	echo ${bold}Websites:${normal}
+	python ~/my_projects/analytics_api/HelloAnalytics.py
+fi
 
+echo
 echo "Check your logs for... I don't know. Figure it out. Then automate it here"
