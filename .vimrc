@@ -5,7 +5,7 @@ silent! call pathogen#infect()
 " B) load everything in ~/.vim/bundle
 " Honestly it just makes organizing ~/.vim nicer because it searches for *.vim
 " files
-
+set path+=**
 if exists("*pathogen#infect")
 	" requires snipmate- assume its installed if pathogen is installed
 	au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
