@@ -8,6 +8,11 @@ alias lla='ls -la --color=auto'
 alias l.='ls -d .* --color=auto'
 
 alias termbin='nc termbin.com 9999'
+if command -v pandoc &> /dev/null; then
+	if command -v lynx &> /dev/null; then
+		alias pmd='pandoc -t html | lynx -stdin -dump'
+	fi
+fi
 
 export EDITOR=$(which vim)
 
