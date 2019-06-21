@@ -35,7 +35,7 @@ autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | se
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 " this line is for vimgo's gofmt to not fuck up folding
-let go_fmt_experimental=1
+let g:go_fmt_experimental=1
 
 set omnifunc=syntaxcomplete?Complete
 
