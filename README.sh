@@ -18,7 +18,7 @@ else
 	echo "The .tmux.conf just does a couple basic things, so dump it and link it"
 fi
 if [ "$(realpath ~/.vimrc)" = "$PWD/.vimrc" ]; then
-	echo "Looks like .vimrc installed"
+	echo "Looks like .vimrc installed. Checkout the guide and use the plugins."
 else
 	echo
 	echo "The .vimrc is pretty comprehensive. Use it, link it, study it. The vimguide goes with it"
