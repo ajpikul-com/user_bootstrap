@@ -1,4 +1,4 @@
-
+set backspace=indent,eol,start
 silent! call pathogen#infect()
 " All pathogen does is 
 " A) Get loaded (if installed in ~/.vim/pathogen and linked in ~/.vim/autoload
