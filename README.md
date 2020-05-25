@@ -15,3 +15,5 @@ bin/pasw: helps me control pulse audio a bit with my headset and headphones
 bin/tirc: starts tmux + irssi with a different mouse mode than default for irssi's sake
 
 .gitignore: basic .gitignore script for any project
+
+.editor_config: basic editorconfig to be used with that vim plugin
