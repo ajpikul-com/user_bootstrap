@@ -1,3 +1,7 @@
+" It may be the pathogen is not being used, but :help package instead! Check!
+
+
+
 set backspace=indent,eol,start
 silent! call pathogen#infect()
 " All pathogen does is 
@@ -6,6 +10,8 @@ silent! call pathogen#infect()
 " B) load everything in ~/.vim/bundle (any dir/plugin.vim)
 " Honestly it just makes organizing ~/.vim nicer because it searches for *.vim
 " files
+
+" the follow will let you look for .vimrc in your local folder
 set path+=**
 if exists("*pathogen#infect")
 	" requires snipmate- assume its installed if pathogen is installed
