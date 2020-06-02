@@ -40,9 +40,6 @@ set switchbuf=usetab,newtab
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
-" this line is for vimgo's gofmt to not fuck up folding
-let g:go_fmt_experimental=1
-
 set omnifunc=syntaxcomplete?Complete
 
 set laststatus=2
@@ -70,5 +67,11 @@ let ruby_fold=1               " Ruby
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
+
+" this line is for vimgo's gofmt to not fuck up folding
+let g:go_fmt_experimental=0
+set foldmethod=syntax
+let g:go_fmt_experimental=1
+
 
 source ~/.vimrc_prologue
