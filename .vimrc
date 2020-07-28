@@ -69,9 +69,9 @@ let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
 " this line is for vimgo's gofmt to not fuck up folding
-let g:go_fmt_experimental=0
+" let g:go_fmt_experimental=0
 set foldmethod=syntax
-let g:go_fmt_experimental=1
+" let g:go_fmt_experimental=1
 
 
 source ~/.vimrc_prologue
