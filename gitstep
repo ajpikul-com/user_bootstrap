@@ -1,5 +1,7 @@
-files=$(echo -e "$(git log --oneline master..@{upstream} | cut -d' ' -f1)")
-
+files="$(echo -e "$(git log --oneline master..@{upstream} | cut -d' ' -f1)")"
+files=($files)
 for ((i=${#files[@]}-1; i>=0; i--)); do
-	echo "${files[$i]}"
+ 	git log "${files[$i]}"^.."${files[$i]}"
+	git diff "${files[$i]}"^.."${files[$i]}"
+	read press
 done
