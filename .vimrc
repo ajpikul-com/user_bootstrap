@@ -1,14 +1,22 @@
+" It may be the pathogen is not being used, but :help package instead! Check!
 
+
+
+set backspace=indent,eol,start
 silent! call pathogen#infect()
 " All pathogen does is 
-" A) Get loaded (if installed in ~/.vim/pathogen and linked in ~/.vim/autload
-" B) load everything in ~/.vim/bundle
+" A) Get loaded (if installed in ~/.vim/pathogen and linked in ~/.vim/autoload
+" (so ~/.vim/autoload/pathogen.vim)
+" B) load everything in ~/.vim/bundle (any dir/plugin.vim)
 " Honestly it just makes organizing ~/.vim nicer because it searches for *.vim
 " files
+
+" the follow will let you look for .vimrc in your local folder
 set path+=**
 if exists("*pathogen#infect")
 	" requires snipmate- assume its installed if pathogen is installed
-	au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
+	" au BufRead * execute ":SnipMateLoadScope " . expand("%:t")
+	" I never used it
 	let patho = ""
 else
 	let patho = "No\ Pathogen-\ See\ .vimrc\ \ "
@@ -31,6 +39,7 @@ set switchbuf=usetab,newtab
 " this is supposed to make folding chillout
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
 set omnifunc=syntaxcomplete?Complete
 
 set laststatus=2
@@ -59,11 +68,10 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
-
-" for autoread, which sucks entirely
-au FocusGained,BufEnter,InsertEnter * :silent! !
-
-" for snipmate
+" this line is for vimgo's gofmt to not fuck up folding
+" let g:go_fmt_experimental=0
+set foldmethod=syntax
+" let g:go_fmt_experimental=1
 
 
 source ~/.vimrc_prologue

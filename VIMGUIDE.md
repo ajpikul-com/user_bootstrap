@@ -84,12 +84,10 @@ Vim can also start in a server mode
 
 My plugins:
 
-**NERD_commenter:** #<lead>c{c -> comment out those lines, i -> invert comment state}, more elsewhere  
-**Sensible**: basically does a lot vimrc stuff, might override mine  fix backspace, always see one line above/below in scrolls, autoread file changes  
-**scripttease**: supposed to help with scripts 
-**vim-gitgutter**: supposedly some interesting git tools
-**vim-node**: adds some stuff like `gf` to jump to a file w/ require  
-**vim-surround**: adds shortcuts for editing surroundings.. cs"' changes " to ', or cs"<q>, or cst!. ds" deletes surroundings. there's more if you check it out.  
-**vim-fugative**: feature-rich git thinger, if we need it, we'll look it up
-**vim-sneak**: like `f` and `F`, but takes two characters on s and S
-**vim-snipmate**: lots of snippets you gotta checkout, use SnipMateOpenSnippetFiles to see a list of snip files loaded, ~/.vim/snippets contains .snippets files you make
+* vim-go:
+
+https://github.com/fatih/vim-go
+
+* vim-editorconfig: there's an editorconfig file in misc
+
+https://github.com/editorconfig/editorconfig-vimc

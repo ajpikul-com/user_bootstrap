@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "misc is a bit of a junk drawer with a couple really useful things in it"
-echo "make sure to run this from /misc"
+echo "make sure to run this from ~/misc"
 echo
 if [ "$(realpath ~/.bashrc_prologue)" = "$PWD/.bashrc_prologue" ]; then
 	echo "Looks like .bashrc_prologue is installed"
@@ -18,7 +18,7 @@ else
 	echo "The .tmux.conf just does a couple basic things, so dump it and link it"
 fi
 if [ "$(realpath ~/.vimrc)" = "$PWD/.vimrc" ]; then
-	echo "Looks like .vimrc installed"
+	echo "Looks like .vimrc installed. Checkout the guide and use the plugins."
 else
 	echo
 	echo "The .vimrc is pretty comprehensive. Use it, link it, study it. The vimguide goes with it"
