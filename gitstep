@@ -1,0 +1,5 @@
+files=$(echo -e "$(git log --oneline master..@{upstream} | cut -d' ' -f1)")
+
+for ((i=${#files[@]}-1; i>=0; i--)); do
+	echo "${files[$i]}"
+done
