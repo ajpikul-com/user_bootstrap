@@ -8,6 +8,7 @@ alias lla='ls -la --color=auto'
 alias l.='ls -d .* --color=auto'
 
 alias termbin='nc termbin.com 9999'
+
 if command -v pandoc &> /dev/null; then
 	if command -v lynx &> /dev/null; then
 		alias pmd='pandoc -t html | lynx -stdin -dump'
@@ -16,6 +17,10 @@ fi
 
 export EDITOR=$(which vim)
 
+if [ "${TERM}" = "alicritty" ]; then
+	export TERM="xterm"
+fi
+
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
-export PATH="/home/ajp/bin:$PATH"
+export PATH="/home/${USER}/bin:$PATH"

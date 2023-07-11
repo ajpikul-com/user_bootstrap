@@ -1,7 +1,5 @@
 " It may be the pathogen is not being used, but :help package instead! Check!
 
-
-
 set backspace=indent,eol,start
 silent! call pathogen#infect()
 " All pathogen does is 
