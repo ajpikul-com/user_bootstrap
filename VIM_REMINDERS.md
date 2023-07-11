@@ -1,10 +1,10 @@
-# Vim Guide
+# Vim Guide- Reminding Me of Useful Tools
 
-### This is for reminders. github has good dot files and so does my "misc" repo 
+## Save and Reload Session
 
-`:mks session_name`  
-`:source session_name`  
-or `vim -S session_name`
+`:mks session_name.SESH`  
+`:source session_name.SESH`  
+or `vim -S session_name.SESH`
 
 ## Modeline
 
@@ -73,14 +73,13 @@ Macros are super good for lots of repetition:
 2) `q` stops recording  
 3) `@SOMELETTER` repeats recording  
 
-**VIM CAN BE USED TO BROWSE AND EDIT ZIPPED AND TARRED FILES**
-
+## **VIM CAN BE USED TO BROWSE AND EDIT ZIPPED AND TARRED FILES**
 
 :e ftp/http/rcp/rsync/scp/sftp://user@machine:#port/path <-- just a normal w/e  
 *need more info here, http not so good*
 
 
-Vim can also start in a server mode
+## Vim can also start in a server mode
 
 My plugins:
 

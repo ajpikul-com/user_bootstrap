@@ -1,10 +1,12 @@
-Just miscellaneous utilities and files
+# A basic dev environment that I use for WHATEVER system
 
-They should be symlinked to here so you can edit and update them easily
+There is a script in here, README.sh, which will just look at your $HOME and let you know what it thinks you should do, what it thinks you should install. And prompt you to add things.
 
-There is a script in here, README.sh, which will just look at your $HOME and let you know what it thinks you should do
+There is a [vim readme](VIMGUIDE.md).
 
-bin/ish: very useful wrapper for ssh if you work with lots of embedded devices
+## Bin Programs 
+
+bin/ish: very useful wrapper for ssh if you work with lots of embedded devices under DHCP, always ssh'ing, IPs always changing.
 
 bin/mtpmount: part of my on going war with media and mounting
 
@@ -13,7 +15,3 @@ bin/mtpumnt: same
 bin/pasw: helps me control pulse audio a bit with my headset and headphones
 
 bin/tirc: starts tmux + irssi with a different mouse mode than default for irssi's sake
-
-.gitignore: basic .gitignore script for any project
-
-.editor_config: basic editorconfig to be used with that vim plugin
