@@ -15,3 +15,5 @@ bin/mtpumnt: same
 bin/pasw: helps me control pulse audio a bit with my headset and headphones
 
 bin/tirc: starts tmux + irssi with a different mouse mode than default for irssi's sake
+
+gitstep: will allow you to look at commit on by one comparing HEAD to upstream
