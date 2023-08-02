@@ -42,6 +42,7 @@ else
 		case $yn in
 			[Yy] ) echo "Adding.."
 				ln -s $PWD/0.vimrc /home/$USER/.vimrc
+				touch /home/$USER/.vimrc_prologue
 					;;
 		esac
 	fi
