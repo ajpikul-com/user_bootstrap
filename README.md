@@ -8,12 +8,6 @@ There is a [vim readme](VIMGUIDE.md).
 
 bin/ish: very useful wrapper for ssh if you work with lots of embedded devices under DHCP, always ssh'ing, IPs always changing.
 
-bin/mtpmount: part of my on going war with media and mounting
-
-bin/mtpumnt: same
-
-bin/pasw: helps me control pulse audio a bit with my headset and headphones
-
 bin/tirc: starts tmux + irssi with a different mouse mode than default for irssi's sake
 
-gitstep: will allow you to look at commit on by one comparing HEAD to upstream
+gitstep: will allow you to look at commit one by one comparing HEAD to upstream
