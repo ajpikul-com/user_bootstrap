@@ -11,3 +11,14 @@ bin/ish: very useful wrapper for ssh if you work with lots of embedded devices u
 bin/tirc: starts tmux + irssi with a different mouse mode than default for irssi's sake
 
 gitstep: will allow you to look at commit one by one comparing HEAD to upstream
+
+## Emacs
+
+Installed packages:
+
+evil
+impatient-mode
+markdown-mode
+pandoc-mode
+simple-httpd
+
