@@ -20,23 +20,23 @@ You can set "custom" vim settings w/in first or last 5 lines of any file:
 " comment in .vimrc
 
 `map KEY_COMBO command`  
-ex: `map rr :source ~/.vimrc` makes `\rr` autotype (but not execute, need &lt;CR> for that) ":source ~/.vimrc"
+ex: `map rr :source ~/.vimrc` makes `\rr` autotype (but not execute, need `<CR>` for that) `:source ~/.vimrc`
 
 Filetype specific vimrcs:  
-~/.vim/ftplugin/javascript.vim, python.vim, etc
+`~/.vim/ftplugin/javascript.vim, python.vim, etc`
 
 ## Here's and there's
 
 
-:au[tocmd] [group] {event} {pat} [nested] {cmd}
+`:au[tocmd] [group] {event} {pat} [nested] {cmd}`
 
 `exuberant-ctags --c-kinds=+defgpstux -R .`
 
-`^p` OR `^n`: search for previous or next work.. not sure what it depends on... not sure if tag enabled... but it's awesome
+`^p` OR `^n`: search for previous or next word.. not sure what it depends on... not sure if tag enabled... but it's awesome
 
-from vim readme: "ctags files can be used to find a file very quickly. Just add the "--extra=+f" option in the ctags line. You may then open new files manually with autocompletion, with :tag myfile.cpp"
+from vim readme: 
 
-This works decently for C, I think that it does more than .c and .h files tho? .S files would be nice. .ld too. There might be better taggers.
+> ctags files can be used to find a file very quickly. Just add the "--extra=+f" option in the ctags line. You may then open new files manually with autocompletion, with `:tag myfile.cpp`
 
 `set tags=path/to/tags`  
 also, `:pwd` shows you current working directory  
@@ -87,6 +87,6 @@ My plugins:
 
 https://github.com/fatih/vim-go
 
-* vim-editorconfig: there's an editorconfig file in misc
+* vim-editorconfig: there's an editorconfig file in the user_bootstrap repo
 
 https://github.com/editorconfig/editorconfig-vimc
