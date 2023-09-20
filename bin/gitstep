@@ -1,4 +1,13 @@
-files="$(echo -e "$(git log --oneline master..@{upstream} | cut -d' ' -f1)")"
+#!/bin/bash
+
+if [ -z "$1" ]; then
+	BRANCH="master"
+else
+	BRANCH=$1
+fi
+export BRANCH
+
+files="$(echo -e "$(git log --oneline $BRANCH..@{upstream} | cut -d' ' -f1)")"
 files=($files)
 for ((i=${#files[@]}-1; i>=0; i--)); do
  	git log "${files[$i]}"^.."${files[$i]}"
