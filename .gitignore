@@ -14,7 +14,8 @@
 *.hex
 *.out
 *.sw*
-node_modules/*
+node_modules/
 gerbers.zip
 gerbers/
 *.lck
+.ipynb_checkpoints/

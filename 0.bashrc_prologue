@@ -28,3 +28,6 @@ setxkbmap -option grp:alt_shift_toggle us,es &>/dev/null || true
 export PATH="/home/${USER}/bin:$PATH"
 
 echo "I was sourced! bashrc PROLOGUE!"
+
+bind 'set match-hidden-files off'
+
