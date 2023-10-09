@@ -3,7 +3,7 @@
 set backspace=indent,eol,start
 silent! call pathogen#infect()
 " All pathogen does is 
-" A) Get loaded (if installed in ~/.vim/pathogen and linked in ~/.vim/autoload
+" A) Get itself loaded (if installed in ~/.vim/pathogen and linked in ~/.vim/autoload
 " (so ~/.vim/autoload/pathogen.vim)
 " B) load everything in ~/.vim/bundle (any dir/plugin.vim)
 " Honestly it just makes organizing ~/.vim nicer because it searches for *.vim
@@ -17,7 +17,7 @@ if exists("*pathogen#infect")
 	" I never used it
 	let patho = ""
 else
-	let patho = "No\ Pathogen-\ See\ .vimrc\ \ "
+	let patho = "No\ Pathogen\ "
 endif
 
 set nocompatible
@@ -29,6 +29,7 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set softtabstop=0 noexpandtab
+set expandtab " we doing spaces bb
 set number
 set cursorline
 set wildmenu
