@@ -39,7 +39,7 @@ set switchbuf=usetab,newtab
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
-set omnifunc=syntaxcomplete?Complete
+"set omnifunc=syntaxcomplete?Complete
 
 set laststatus=2
 set statusline=
@@ -53,7 +53,8 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
-set foldmethod=syntax
+set foldenable
+set foldmethod=marker
 set foldcolumn=8
 set foldlevelstart=2
 
@@ -63,7 +64,8 @@ let perl_fold=1               " Perl
 let php_folding=1             " PHP
 let r_syntax_folding=1        " R
 let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
+let sh_fold_enabled=4         " sh
+let is_bash=1
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
@@ -72,5 +74,5 @@ let xml_syntax_folding=1      " XML
 set foldmethod=syntax
 " let g:go_fmt_experimental=1
 
-
+syntax enable
 source ~/.vimrc_prologue

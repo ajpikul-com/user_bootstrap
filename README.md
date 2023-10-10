@@ -33,3 +33,7 @@ To `sasl` into libera, you need a password or cert (the cert is in `keepassx` bu
 ^^^^ `config` puts it in `.irssi/`
 
 `/msg NickServ CERT ADD`
+
+## VIM
+
+Vim has `editorconfig` installed and there is a `.editorconfig` in this repo. You might want to create a `.vim/after/ftplugin/python.vim` with fold set to indent. `Vim-go` and `jedi-vim` (for python) are good too.
