@@ -73,6 +73,8 @@ let xml_syntax_folding=1      " XML
 " let g:go_fmt_experimental=0
 set foldmethod=syntax
 " let g:go_fmt_experimental=1
+"
+set nolist wrap linebreak breakat&vim
 
 syntax enable
 source ~/.vimrc_prologue
