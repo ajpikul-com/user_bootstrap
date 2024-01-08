@@ -1,3 +1,5 @@
+Note: refactoring `bash_prologue` into a before I3, and a shell version
+
 # Basic Tools
 
 `README.sh` is a healthcheck (not necessarily entirely complete)
@@ -24,13 +26,12 @@ Installed packages:
 
 ## irssi
 
-`Irssi` has a bunch of scripts and configs.
+`irssi` has a bunch of scripts and configs.
 
 To `sasl` into libera, you need a password or cert (the cert is in `keepassx` but I doubt it can be used on different machines).
 
-
 `openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out libera.pem -keyout libera.pem`  
-^^^^ `config` puts it in `.irssi/`
+^^^^ Our `config` puts it in `.irssi/`
 
 `/msg NickServ CERT ADD`
 
