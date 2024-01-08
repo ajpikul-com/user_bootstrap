@@ -6,6 +6,10 @@ if [ -z "$1" ]; then
 		BRANCH="main"
 	fi
 else
+	if [ "$1" == "--help" ]; then
+		echo "You can include branch name if you'd like: gitstep trunk = git log trunk..@{upstream}"
+		exit 0
+	fi
 	BRANCH=$1
 fi
 export BRANCH
