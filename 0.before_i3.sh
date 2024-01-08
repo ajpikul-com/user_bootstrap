@@ -14,9 +14,9 @@ if [ -z "${ZSH_VERSION}" ]; then
 else
 	autoload -U colors && colors
 	export PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+	bindkey -e
 	bindkey "^[[1;3C" forward-word
 	bindkey "^[[1;3D" backward-word
-	bindkey -e
 fi
 export PATH="/home/${USER}/bin:$PATH"
 
@@ -24,7 +24,7 @@ if [ "${TERM}" = "alacritty" ]; then
 	export TERM="xterm-256color"
 fi
 
-setxkbmap -option grp:alt_shift_toggle us,la-latin1,es,br &>/dev/null || true
+setxkbmap us,latam,es,br &>/dev/null || true
 
 
 

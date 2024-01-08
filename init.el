@@ -3,10 +3,23 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+(unless (package-installed-p 'evil)
+  (package-install 'evil))
 (require 'evil)
 (evil-mode 1)
 
+(unless (package-installed-p 'markdown-mode)
+  (package-install 'markdown-mode))
 (require 'markdown-mode)
+
+(unless (package-installed-p 'impatient-mode)
+  (package-install 'impatient-mode))
+(require 'impatient-mode)
+
+(unless (package-installed-p 'pandoc-mode)
+  (package-install 'pandoc-mode))
+(require 'pandoc-mode)
+
 (defun markdown-html (buffer)
   (princ (with-current-buffer buffer
 	   (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s </xmp><script src=\"http://ndossougbe.github.io/strapdown/dist/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
