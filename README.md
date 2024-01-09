@@ -34,7 +34,9 @@ I had to install treesitter (`pacman`) and then `:TSInstall vimdoc` to get some 
 
 Not super pumped about the current config or plugins- we'll see how things go, we're about to start using python.
 
-## Bin Programs 
+It supports the editorconfig out of the box
+
+## Bin Programs
 
 `bin/ish`: very useful wrapper for ssh if you work with lots of embedded devices under DHCP, always ssh'ing, IPs always changing.
 
@@ -48,7 +50,7 @@ Not super pumped about the current config or plugins- we'll see how things go, w
 
 To `sasl` into libera, you need a password or cert (the cert is in `keepassx` but I doubt it can be used on different machines).
 
-`openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out libera.pem -keyout libera.pem`  
+`openssl req -x509 -new -newkey rsa:4096 -sha256 -days 1096 -nodes -out libera.pem -keyout libera.pem`
 ^^^^ Our `config` puts it in `.irssi/`
 
 `/msg NickServ CERT ADD`
