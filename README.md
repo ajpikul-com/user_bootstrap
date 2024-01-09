@@ -16,19 +16,23 @@ fi
 
 ## i3
 
-My I3 setup is documented in my [personal config](https://github.com/ajpikul-com/personal_config)
+My I3 setup is documented in my [personal config](https://github.com/ajpikul-com/lenovo_config)
 
 ## emacs
 
 `init.el` will installed what it needs to if it is in one of emac's paths (`~/.emacs.d/` for example).
 
-## nvim
-
-`vim` generally has a bunch of plugins installed. The `.vimrc` is pretty good. #TODO 
-
 ## tmux
 
 `.tmux.conf` allows us to permanently rename windows and adjusts some usability things.
+
+## nvim
+
+So nvim was installed from my custom nightly aur- there's currently argument about some unmentioned dependencies:
+
+I had to install treesitter (`pacman`) and then `:TSInstall vimdoc` to get some errors to pop up.
+
+Not super pumped about the current config or plugins- we'll see how things go, we're about to start using python.
 
 ## Bin Programs 
 
